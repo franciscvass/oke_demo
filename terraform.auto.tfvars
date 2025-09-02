@@ -1,0 +1,11 @@
+compartment_id        = "ocid1.compartment.oc1......"
+bastion_allowed_cidrs = ["X.X.X.X/Y"]
+vcn_name              = "oke1"
+ssh_private_key_path  = "...../id_rsa"
+ssh_public_key_path   = "..../id_rsa.pub"
+cluster_name          = "oke1"
+cluster_type          = "enhanced"
+cni_type              = "npn" #flannel  
+config_profile_home_reg     = "ION-IAD"
+config_profile_deploy_reg   = "ION-FRA"
+kubernetes_version          = "v1.32.1"
