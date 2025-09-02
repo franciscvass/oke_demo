@@ -9,8 +9,6 @@ bash -x /var/run/oke-init.sh
 # add your code here
 # install OCI CLI
 yum install python36-oci-cli -y
-echo "GROWFS"
-/usr/libexec/oci-growfs -y
 echo "INSTALL DCGM"
 # instal dcgmi
 dnf config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
