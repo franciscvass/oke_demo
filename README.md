@@ -8,6 +8,7 @@
 
 - There are 3 files **auto.tfvars* where you must provides variables values
 - Var are described below
+**provider_oci**
 
 ```
 variable "provider_oci" {
@@ -16,6 +17,17 @@ variable "provider_oci" {
 }
 ```
 - Can be used instead of *config_profile_home_reg* and *config_profile_deploy_reg* to provide auth details
+- Or use the below as example
+```
+provider_oci = {
+  tenancy       = "ocid1.tenancy.oc1...."
+  user_id       = "ocid1.user.oc1....."
+  fingerprint   = "..."
+  key_file_path = "...._.pem"
+  region        = "eu-frankfurt-1"
+}
+```
+**worker_pools**
 
 ```
 variable "worker_pools" {
@@ -26,6 +38,8 @@ variable "worker_pools" {
 ```
 - Used to provides details about the worker nodes in a pool
 
+**kubernetes_version**
+
 ```
 variable "kubernetes_version" {
   type    = string
@@ -34,13 +48,18 @@ variable "kubernetes_version" {
 ```
 - To provides the K8S version
 
+**state_id**
 ```
 variable "state_id" {
   type    = string
   default = "oke1"
 }
 ```
-- It will add this string to the name of Bastion,Operator, worker nodes and VCN
+- It will add this string to the name of Bastion,Operator, worker nodes and VCN.
+- you will be able to identified the bastion,operator for each deployment
+
+**compartment_id**
+
 ```
 variable "compartment_id" {
   type    = string
@@ -48,13 +67,18 @@ variable "compartment_id" {
 }
 ```
 - The compartment where will. deploy the resources (Bastion, Operator, Cluster, VCN)
+
+**bastion_allowed_cidrs**
 ```
 variable "bastion_allowed_cidrs" {
   type = list
   default = ["0.0.0.0/0"]
 }
 ```
-- To allow ssh to Bastion from this network. The default is 0.0.0.0/0 (all networks) but it's not recommended
+- To allow ssh to Bastion from this network.
+- the default is 0.0.0.0/0 (all networks) but it's not recommended
+
+**vcn_name**
 
 ```
 variable "vcn_name" {
@@ -63,6 +87,10 @@ variable "vcn_name" {
 }
 ```
 - The name of VCN
+
+**ssh_private_key_path**
+**ssh_public_key_path**
+
 ```
 variable "ssh_private_key_path" {
   type = string
@@ -73,6 +101,9 @@ variable "ssh_public_key_path" {
 }
 ```
 - The path to ssh keys
+
+**cluster_name**
+
 ```
 variable "cluster_name" {
   type = string
@@ -80,6 +111,9 @@ variable "cluster_name" {
 }
 ```
 - The name of the cluster
+
+**cluster_type**
+
 ```
 variable "cluster_type" {
   type = string
@@ -87,13 +121,20 @@ variable "cluster_type" {
 }
 ```
 - The type of cluster (basic or enhanced)
+
+**cni_type**
+
 ```
 variable "cni_type" {
   type = string
   default = "flannel"
 }  
 ```
+
 - The type of CNI (npn or flannel)
+
+**config_profile_home_reg**
+**config_profile_deploy_reg**
 
 ```
 variable "config_profile_home_reg" {
