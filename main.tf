@@ -2,14 +2,39 @@ locals {
   cinit = filebase64("${path.root}/global_cloud_init.sh")
 }
 
+# In case you are using oci config file
 provider "oci" {
   config_file_profile = var.config_profile_home_reg
   alias = "home"
 }
 
+# In case you are using API key 
+
+#provider "oci" {
+#  region           = var.provider_oci.home_region
+#  tenancy_ocid     = var.provider_oci.tenancy
+#  user_ocid        = var.provider_oci.user_id
+#  fingerprint      = var.provider_oci.fingerprint
+#  private_key_path = var.provider_oci.key_file_path
+#  alias = "home"
+#}
+
+# In case you are using oci config file
 provider "oci" {
   config_file_profile = var.config_profile_deploy_reg
 }
+
+# In case you are using API key 
+
+#provider "oci" {
+#  region           = var.provider_oci.region
+#  tenancy_ocid     = var.provider_oci.tenancy
+#  user_ocid        = var.provider_oci.user_id
+#  fingerprint      = var.provider_oci.fingerprint
+#  private_key_path = var.provider_oci.key_file_path
+#}
+
+
 
 module "oke" {
   source                = "oracle-terraform-modules/oke/oci"

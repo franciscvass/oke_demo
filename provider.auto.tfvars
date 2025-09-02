@@ -5,4 +5,5 @@
 #  fingerprint   = ".."
 #  key_file_path = ".."
 #  region        = ".."
+#  home_region   = ".."
 #}

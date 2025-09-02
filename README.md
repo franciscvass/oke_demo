@@ -21,11 +21,12 @@ variable "provider_oci" {
 - Or use the below as example
 ```
 provider_oci = {
-  tenancy       = "ocid1.tenancy.oc1...."
-  user_id       = "ocid1.user.oc1....."
-  fingerprint   = "..."
-  key_file_path = "...._.pem"
-  region        = "eu-frankfurt-1"
+  tenancy       = ".."
+  user_id       = ".."
+  fingerprint   = ".."
+  key_file_path = ".."
+  region        = ".." #The region where you deploy the OKE
+  home_region   = ".." #The Tenancy home region
 }
 ```
 **worker_pools**
