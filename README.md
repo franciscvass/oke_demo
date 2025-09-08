@@ -1,3 +1,8 @@
+# Terraform OKE for Oracle Cloud Infrastructure
+
+- The code will use the OCI OKE terraform module from [here](https://registry.terraform.io/modules/oracle-terraform-modules/oke/oci/latest)
+- The github code is published [here](https://github.com/oracle-terraform-modules/terraform-oci-oke)
+
 ## What will be deploy
 
 - a VCN in which will create the Operator, Bastion and OKE
